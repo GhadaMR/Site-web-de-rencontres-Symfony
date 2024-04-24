@@ -1,0 +1,36 @@
+{# templates/recherche_partenaire/index.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Search for partners
+{% endblock %}
+
+{% block body %}
+	<h1>Search for partners</h1>
+
+	{{ form_start(recherche_partenaire_form) }}
+	{{ form_row(recherche_partenaire_form.sport) }}
+	{{ form_row(recherche_partenaire_form.niveau) }}
+	{{ form_row(recherche_partenaire_form.Departement) }}
+
+	{{ form_end(recherche_partenaire_form) }}
+
+	{% if resultats is defined %}
+		<h2>Search results</h2>
+		<div
+			id="resultats">
+			{# Ici, vous pouvez parcourir les résultats et les afficher #}
+			{% for resultat in resultats %}
+				<div
+					class="resultat">
+					{# Affichez les détails de chaque partenaire trouvé ici #}
+					<p>	{{ resultat.user.email }}</p>
+
+				</div>
+			{% else %}
+				<p>
+No partner found.</p>
+			{% endfor %}
+		</div>
+	{% endif %}
+{% endblock %}

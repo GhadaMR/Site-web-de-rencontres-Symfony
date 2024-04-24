@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add Sport{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h2>Add Sport</h2>
+
+        {{ form_start(form) }}
+
+        {{ form_row(form.nomSport, {
+            'label': 'Name of sport',
+            'attr': {'placeholder': 'Enter the name of the sport'}
+        }) }}
+        {{ form_row(form.image, {
+            'label': 'URL of image',
+            'attr': {'placeholder': 'Enter URL of image'}
+        }) }}
+
+        <button type="submit" class="btn btn-primary">Add</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

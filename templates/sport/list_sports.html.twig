@@ -1,0 +1,29 @@
+{# templates/sport/list_sports.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste of Sports{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+      <header>
+        <h1>Welcome </h1>
+    </header>
+    </br>
+    </br>
+        <h3>Liste of Sports</h3>
+
+        {% if sports is empty %}
+            <p>No sports available.</p>
+        {% else %}
+            <ul class="list-group" style="display: inline-block; margin-right: 10px;">
+                {% for sport in sports %}
+                    <li class="list-group-item" style="display: inline-block; margin-right: 10px;">
+                        <h5>{{ sport.nomSport }}</h5>
+                        <img src="{{ sport.image }}" alt="{{ sport.nomSport }}" class="img-fluid" style="width: 30%;>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+{% endblock %}
